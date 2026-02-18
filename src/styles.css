@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f6f2;
+}
+
+.navbar {
+  background: #3e2723;
+  padding: 15px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.container {
+  padding: 20px;
+}
+
+.products {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+button {
+  padding: 8px 12px;
+  border: none;
+  background: #6d4c41;
+  color: white;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+button:hover {
+  background: #4e342e;
+}
+
+.form {
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.form input, select {
+  padding: 10px;
+  margin-bottom: 10px;
+}
