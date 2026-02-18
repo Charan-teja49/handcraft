@@ -1,18 +1,27 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
-  const [login, setLogin] = useState({});
+  const [login, setLogin] = useState({
+    email: "",
+    password: ""
+  });
+
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const stored = JSON.parse(localStorage.getItem("user"));
+
+    const storedUser = JSON.parse(localStorage.getItem("registeredUser"));
 
     if (
-      stored &&
-      stored.email === login.email &&
-      stored.password === login.password
+      storedUser &&
+      storedUser.email === login.email &&
+      storedUser.password === login.password
     ) {
+      localStorage.setItem("loggedUser", JSON.stringify(storedUser));
       alert("Login Successful");
+      navigate("/");
     } else {
       alert("Invalid Credentials");
     }
@@ -21,8 +30,20 @@ function Login() {
   return (
     <form className="form" onSubmit={handleLogin}>
       <h2>Login</h2>
-      <input placeholder="Email" onChange={e => setLogin({...login, email:e.target.value})} />
-      <input type="password" placeholder="Password" onChange={e => setLogin({...login, password:e.target.value})} />
+
+      <input
+        placeholder="Email"
+        value={login.email}
+        onChange={e => setLogin({...login, email: e.target.value})}
+      />
+
+      <input
+        type="password"
+        placeholder="Password"
+        value={login.password}
+        onChange={e => setLogin({...login, password: e.target.value})}
+      />
+
       <button type="submit">Login</button>
     </form>
   );

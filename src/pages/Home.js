@@ -1,13 +1,15 @@
 import products from "../data/products";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/product/ProductCard";
 
 function Home({ addToCart }) {
   return (
     <div className="container">
-      <h2>Handcrafted Collection</h2>
+      <h1>Discover Authentic Handcrafted Products</h1>
+      <p>Supporting artisans with modern technology.</p>
+
       <div className="products">
         {products.map(product => (
-          <ProductCard 
+          <ProductCard
             key={product.id}
             product={product}
             addToCart={addToCart}
